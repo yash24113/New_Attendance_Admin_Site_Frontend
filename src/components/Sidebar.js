@@ -34,16 +34,16 @@ import ScheduleIcon from "@mui/icons-material/Schedule";
 import PeopleIcon from "@mui/icons-material/People";
 import BusinessIcon from "@mui/icons-material/Business";
 
-const menuItems = [
-  { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
-  { text: "Countries", icon: <PublicIcon />, path: "/countries" },
-  { text: "States", icon: <FlagIcon />, path: "/states" },
-  { text: "Cities", icon: <LocationCityIcon />, path: "/cities" },
-  { text: "Locations", icon: <PlaceIcon />, path: "/locations" },
-  { text: "Products", icon: <ShoppingCartIcon />, path: "/products" },
-  { text: "SEO", icon: <PublicIcon />, path: "/seos" },
-  { text: "Business Inquiry", icon: <MessageIcon />, path: "/inquiries" },
-];
+// const menuItems = [
+//   { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
+//   { text: "Countries", icon: <PublicIcon />, path: "/countries" },
+//   { text: "States", icon: <FlagIcon />, path: "/states" },
+//   { text: "Cities", icon: <LocationCityIcon />, path: "/cities" },
+//   { text: "Locations", icon: <PlaceIcon />, path: "/locations" },
+//   { text: "Products", icon: <ShoppingCartIcon />, path: "/products" },
+//   { text: "SEO", icon: <PublicIcon />, path: "/seos" },
+//   { text: "Business Inquiry", icon: <MessageIcon />, path: "/inquiries" },
+// ];
 
 function Sidebar({
   open,
@@ -111,7 +111,7 @@ function Sidebar({
         </Box>
       )}
       <List sx={{ px: collapsed ? 1 : 2 }}>
-        {menuItems.map((item) => (
+        {/* {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ mb: 1 }}>
             <Tooltip
               title={collapsed ? item.text : ""}
@@ -162,7 +162,7 @@ function Sidebar({
               </ListItemButton>
             </Tooltip>
           </ListItem>
-        ))}
+        ))} */}
         {/* EMS Dropdown */}
         <ListItem disablePadding sx={{ mb: 1 }}>
           <Tooltip

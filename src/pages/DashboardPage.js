@@ -20,13 +20,15 @@ import {
   People as PeopleIcon,
   Business as BusinessIcon,
 } from "@mui/icons-material";
-import api from "../utils/api";
+
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const BACKEND_API = "https://age-landing-backend.egport.com";
-const EMPLOYEE_API = "https://emsbackend-production-5b9b.up.railway.app/employees";
-const OFFICE_API = "https://emsbackend-production-5b9b.up.railway.app/offices";
+
+const EMPLOYEE_API = `${process.env.ATTENDANCE_BACKEND_API}/employees`;
+const OFFICE_API = `${process.env.ATTENDANCE_BACKEND_API}/offices`;
+
+
 
 const StatCard = ({ title, count, icon, color, loading, onClick }) => {
   return (
@@ -119,36 +121,18 @@ function DashboardPage() {
 
       // Fetch counts for each entity
       const [
-        countriesRes,
-        statesRes,
-        citiesRes,
-        locationsRes,
-        productsRes,
-        inquiriesRes,
-        seosRes,
+       
         employeesRes,
         officesRes
       ] = await Promise.all([
-        api.get(`${BACKEND_API}/api/countries`),
-        api.get(`${BACKEND_API}/api/states`),
-        api.get(`${BACKEND_API}/api/cities`),
-        api.get(`${BACKEND_API}/api/locations`),
-        api.get(`${BACKEND_API}/api/products`),
-        api.get(`${BACKEND_API}/api/inquiries`),
-        api.get(`${BACKEND_API}/api/seos`),
+        
         // fetch employees from EMS API
         (await import('axios')).default.get(EMPLOYEE_API),
         (await import('axios')).default.get(OFFICE_API),
       ]);
 
       setStats({
-        countries: countriesRes.data.length || 0,
-        states: statesRes.data.length || 0,
-        cities: citiesRes.data.length || 0,
-        locations: locationsRes.data.length || 0,
-        products: productsRes.data.length || 0,
-        inquiries: inquiriesRes.data.length || 0,
-        seos: seosRes.data.length || 0,
+        
         employees: employeesRes.data.length || 0,
         offices: officesRes.data.length || 0,
       });
@@ -167,55 +151,8 @@ function DashboardPage() {
   }, []);
 
   const statCards = [
-    {
-      title: "Countries",
-      count: stats.countries,
-      icon: <CountryIcon />,
-      color: "#2196F3",
-      path: "/countries",
-    },
-    {
-      title: "States",
-      count: stats.states,
-      icon: <StateIcon />,
-      color: "#4CAF50",
-      path: "/states",
-    },
-    {
-      title: "Cities",
-      count: stats.cities,
-      icon: <CityIcon />,
-      color: "#FF9800",
-      path: "/cities",
-    },
-    {
-      title: "Locations",
-      count: stats.locations,
-      icon: <LocationIcon />,
-      color: "#9C27B0",
-      path: "/locations",
-    },
-    {
-      title: "Products",
-      count: stats.products,
-      icon: <ProductIcon />,
-      color: "#F44336",
-      path: "/products",
-    },
-    {
-      title: "Business Inquiries",
-      count: stats.inquiries,
-      icon: <MessageIcon />,
-      color: "#7C4DFF",
-      path: "/inquiries",
-    },
-    {
-      title: "SEOs",
-      count: stats.seos,
-      icon: <SeoIcon />,
-      color: "#00BCD4",
-      path: "/seos",
-    },
+   
+   
     {
       title: "Employees",
       count: stats.employees,
@@ -248,8 +185,7 @@ function DashboardPage() {
           Welcome to Admin Dashboard
         </Typography>
         <Typography variant="h6" sx={{ opacity: 0.9 }}>
-          Manage your countries, states, cities, locations,products , SEO and
-          Business Inquiry efficiently
+          Manage your Employee and Office data efficiently. 
         </Typography>
       </Paper>
 
