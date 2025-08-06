@@ -92,7 +92,7 @@ function LoginPage() {
     }
     setLoading(true);
     try {
-      await axios.post(`${process.env.ATTENDANCE_BACKEND_API}/api/auth/request-otp`, {
+      await axios.post('https://age-06082025.up.railway.app/api/auth/request-otp', {
         email,
       });
       setStep(2);
@@ -108,7 +108,7 @@ function LoginPage() {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post(`${process.env.ATTENDANCE_BACKEND_API}/api/auth/verify-otp`, {
+      const res = await axios.post('https://age-06082025.up.railway.app/api/auth/verify-otp', {
         email,
         otp,
       });
