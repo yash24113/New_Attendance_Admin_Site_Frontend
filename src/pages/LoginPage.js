@@ -23,7 +23,8 @@ import companyLogo from "../images/amrita-logo.png";
 
 // Environment variable for API
 // use this in CRA
-const BACKEND_API = process.env.ATTENDANCE_BACKEND_API;
+const BACKEND_API = process.env.REACT_APP_ATTENDANCE_BACKEND_API;
+
 
 // Rainbow animation border
 const rainbowBorder = {
@@ -92,7 +93,9 @@ function LoginPage() {
     }
     setLoading(true);
     try {
-      await axios.post(`${process.env.ATTENDANCE_BACKEND_API}/api/auth/request-otp`, {
+      // await axios.post(`${process.env.ATTENDANCE_BACKEND_API}/api/auth/request-otp`, {
+      await axios.post(`${BACKEND_API}/api/auth/request-otp`, { email });
+
         email,
       });
       setStep(2);
@@ -108,7 +111,9 @@ function LoginPage() {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post(`${process.env.ATTENDANCE_BACKEND_API}/api/auth/verify-otp`, {
+      const res = await axios.post(`${BACKEND_API}/api/auth/verify-otp`, {
+
+
         email,
         otp,
       });
