@@ -94,7 +94,7 @@ function LoginPage() {
     setLoading(true);
     try {
       // await axios.post(`${process.env.ATTENDANCE_BACKEND_API}/api/auth/request-otp`, {
-      await axios.post(`${BACKEND_API}/api/auth/request-otp`, { email });
+      await axios.post(`${BACKEND_API}/api/auth/request-otp`, 
 
         email,
       });
