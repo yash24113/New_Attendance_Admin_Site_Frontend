@@ -25,8 +25,8 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const VIEW_API = `${process.env.ATTENDANCE_BACKEND_API}/attendance`;
-const ADD_API = `${process.env.ATTENDANCE_BACKEND_API}/api/attendance`;
+const VIEW_API = `${process.env.REACT_APP_ATTENDANCE_BACKEND_API}/attendance`;
+const ADD_API = `${process.env.REACT_APP_ATTENDANCE_BACKEND_API}/api/attendance`;
 
 
 function AttendancePage() {
