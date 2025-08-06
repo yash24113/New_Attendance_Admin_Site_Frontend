@@ -92,7 +92,7 @@ function LoginPage() {
     }
     setLoading(true);
     try {
-      await axios.post('https://age-06082025.up.railway.app/api/auth/request-otp', {
+      await axios.post('https://age-06082025.up.railway.app/auth/request-otp', {
         email,
       });
       setStep(2);
