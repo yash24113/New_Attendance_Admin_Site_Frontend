@@ -15,7 +15,7 @@ import { CSVLink } from "react-csv";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const OFFICE_API = `${process.env.ATTENDANCE_BACKEND_API}/offices`;
+const OFFICE_API = `${process.env.REACT_APP_ATTENDANCE_BACKEND_API}/offices`;
 
 function OfficePage() {
   const { user, loading } = useAuth();
